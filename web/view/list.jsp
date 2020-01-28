@@ -12,7 +12,7 @@
     <title>List Page</title>
 </head>
 <body>
-<table>
+<table class="table">
     <tr>
         <th>Name</th>
         <th>Publisher</th>
@@ -28,6 +28,7 @@
         <td>4</td>
         <td><form method="post"><input type="submit" value="Edit"></form></td>
     </tr>
+    <%--end loop--%>
 </table>
 </body>
 </html>
