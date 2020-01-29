@@ -8,17 +8,19 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
 
-@WebServlet(name = "ListServlet", urlPatterns = "/ClassList")
-public class ListServlet extends HttpServlet {
+@WebServlet(name = "SearchServlet", urlPatterns = "/Search")
+public class SearchServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         Connection conn = null;
-        Statement stmt = null;
+        PreparedStatement stmt = null;
         ResultSet rset = null;
+
+        //add genera and do it by this instead (look back at search and do it)
+        String title = request.getParameter("Title");
         try {
             //create connections
             Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
@@ -29,7 +31,11 @@ public class ListServlet extends HttpServlet {
 
             conn = DriverManager.getConnection(absPath, "jessie", "jessie");
 
-            stmt = conn.createStatement();
+            String sql = "select Title, Publisher, Developer from Games where Title = ?";
+
+            stmt = conn.prepareStatement(sql);
+
+            stmt.setString(1, title);
 
             //execute statements
 
@@ -40,7 +46,7 @@ public class ListServlet extends HttpServlet {
                             "on Publisher.Publisher_ID = Game.Publisher" +
                             "");
                             */
-            rset = stmt.executeQuery("select Title, Publisher, Developer from Games ");
+            rset = stmt.executeQuery();
 
             StringBuilder sb = new StringBuilder("<html><body><table><tr><th>Title</th><th>Publisher</th><th>Developer</th></tr>");
 
@@ -102,5 +108,6 @@ public class ListServlet extends HttpServlet {
                 e.printStackTrace();
             }
         }
+
     }
 }
