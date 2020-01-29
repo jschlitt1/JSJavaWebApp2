@@ -12,6 +12,7 @@
     <title>List Page</title>
 </head>
 <body>
+<form method="post"><input type="submit" value="Add"></form>
 <table class="table">
     <tr>
         <th>Name</th>
