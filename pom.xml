@@ -8,11 +8,16 @@
     <artifactId>JSJavaWebApp</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derby</artifactId>
+            <version>10.14.1.0</version>
+        </dependency>
+    </dependencies>
+
+
     <packaging>war</packaging>
-
-
-    
-
 
     <build>
         <finalName>myWebApp</finalName>
