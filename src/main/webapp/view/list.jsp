@@ -6,11 +6,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="include/header.jsp" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <head>
     <title>List Page</title>
+    <%@ include file="include/bootstrap.jsp" %>
 </head>
 <body>
+<%@ include file="include/navbar.jsp" %>
 <form method="post"><input type="submit" value="Add"></form>
 <table class="table">
     <tr>
@@ -30,5 +32,12 @@
     </tr>
     <%--end loop--%>
 </table>
-</body>
-</html>
+<%@ include file="include/footer.jsp" %>
+
+
+<c:forEach var="game" items="${games}">
+    <p>${game.id}</p>
+    <p>${game.title}</p>
+    <p>${game.devloper}</p>
+    <p>${game.pubisher}</p>
+</c:forEach>

@@ -33,21 +33,20 @@ public class ListServlet extends HttpServlet {
 
             //execute statements
 
-            /* rset = stmt.executeQuery(
-                    "select Title, Publisher.name, Developer " +
-                            "from Games " +
-                            "inner join Publisher" +
-                            "on Publisher.Publisher_ID = Game.Publisher" +
-                            "");
-                            */
-            rset = stmt.executeQuery("select Title, Publisher, Developer from Games ");
+             rset = stmt.executeQuery("select Title as Game, P.name as Publisher, D.name as Developer" +
+                     " from Games G" +
+                     " inner join PUBLISHERS P on P.Publisher_ID = G.Publisher" +
+                     " inner join DEVELOPERS D on D.DEVELOPER_ID = G.Developer"
+             );
+
+            //rset = stmt.executeQuery("select Title, Publisher, Developer from Games ");
 
             StringBuilder sb = new StringBuilder("<html><body><table><tr><th>Title</th><th>Publisher</th><th>Developer</th></tr>");
 
             while (rset.next()){
-                String Title = rset.getString("Title");
-                int Publisher = rset.getInt("Publisher");
-                int Developer = rset.getInt("Developer");
+                String Title = rset.getString("Game");
+                String Publisher = rset.getString("Publisher");
+                String Developer = rset.getString("Developer");
 
                 sb.append("<tr>");
 
