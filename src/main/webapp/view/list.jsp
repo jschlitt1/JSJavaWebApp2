@@ -16,7 +16,7 @@
 <form method="post"><input type="submit" value="Add"></form>
 <table class="table">
     <tr>
-        <th>Name</th>
+        <th>Title</th>
         <th>Publisher</th>
         <th>Developer</th>
         <th>Popularity</th>
@@ -24,26 +24,12 @@
     </tr>
     <c:forEach var="game" items="${games}">
         <tr>
-            <td>${game.Title}</td>
-            <td>${game.Pubisher}</td>
-            <td>${game.Devloper}</td>
-            <td>${game.Rating}</td>
+            <td>${game.title}</td>
+            <td>${game.publisher}</td>
+            <td>${game.developer}</td>
+            <td>${game.rating}</td>
             <td><form method="post"><input type="submit" value="Edit"></form></td>
         </tr>
-        <!--
-        <p>{game.id}</p>
-        <p>{game.title}</p>
-        <p>{game.devloper}</p>
-        <p>{game.pubisher}</p> -->
     </c:forEach>
-    <%--some sort of loop here through the database some random values for now--
-    <tr>
-        <td>COD: MW</td>
-        <td>Activision</td>
-        <td>Infinity Ward</td>
-        <td>4</td>
-        <td><form method="post"><input type="submit" value="Edit"></form></td>
-    </tr>
-    <%--end loop--%>
 </table>
 <%@ include file="include/footer.jsp" %>

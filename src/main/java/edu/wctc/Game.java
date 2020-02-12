@@ -5,15 +5,6 @@ public class Game {
     private String title;
     private int publisher;
     private int developer;
-    private int rating;
-
-    public int getRating() {
-        return rating;
-    }
-
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
 
     public int getId() {
         return id;

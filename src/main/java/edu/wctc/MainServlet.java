@@ -45,10 +45,11 @@ public class MainServlet extends HttpServlet {
 
                     stmt = conn.createStatement();
 
-                    rset = stmt.executeQuery("select Title as Game, P.name as Publisher, D.name as Developer, rating, Game_ID as ID" +
+                    rset = stmt.executeQuery("select Title as Game, P.name as Publisher, D.name as Developer, rating, G.Game_ID as ID" +
                             " from Games G" +
                             " inner join PUBLISHERS P on P.Publisher_ID = G.Publisher" +
-                            " inner join DEVELOPERS D on D.DEVELOPER_ID = G.Developer"
+                            " inner join DEVELOPERS D on D.DEVELOPER_ID = G.Developer" +
+                            " inner join GAMEDETAILS GD on G.Game_ID = GD.GAME_ID"
                     );
 
                     while (rset.next()) {
@@ -58,7 +59,6 @@ public class MainServlet extends HttpServlet {
                         aGame.setDeveloper(rset.getString("Developer"));
                         aGame.setPublisher(rset.getString("Publisher"));
                         aGame.setRating(rset.getInt("Rating"));
-                        //add the rest
 
                         gameList.add(aGame);
                     }
