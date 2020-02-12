@@ -2,9 +2,18 @@ package edu.wctc;
 
 public class GameList {
     private int id;
-    private String name;
+    private String Title;
     private String Publisher;
     private String Developer;
+    private int rating;
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
 
     public int getId() {
         return id;
@@ -14,12 +23,12 @@ public class GameList {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return Title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.Title = title;
     }
 
     public String getPublisher() {

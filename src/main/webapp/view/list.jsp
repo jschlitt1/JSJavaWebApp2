@@ -22,7 +22,21 @@
         <th>Popularity</th>
         <th>Editing</th>
     </tr>
-    <%--some sort of loop here through the database some random values for now--%>
+    <c:forEach var="game" items="${games}">
+        <tr>
+            <td>${game.Title}</td>
+            <td>${game.Pubisher}</td>
+            <td>${game.Devloper}</td>
+            <td>${game.Rating}</td>
+            <td><form method="post"><input type="submit" value="Edit"></form></td>
+        </tr>
+        <!--
+        <p>{game.id}</p>
+        <p>{game.title}</p>
+        <p>{game.devloper}</p>
+        <p>{game.pubisher}</p> -->
+    </c:forEach>
+    <%--some sort of loop here through the database some random values for now--
     <tr>
         <td>COD: MW</td>
         <td>Activision</td>
@@ -33,18 +47,3 @@
     <%--end loop--%>
 </table>
 <%@ include file="include/footer.jsp" %>
-
-
-<c:forEach var="game" items="${games}">
-    <tr>
-        <td>${game.title}</td>
-        <td>${game.pubisher}</td>
-        <td>${game.devloper}</td>
-        <td>${game.rating}</td>
-        <td></td>
-    </tr>
-    <p>${game.id}</p>
-    <p>${game.title}</p>
-    <p>${game.devloper}</p>
-    <p>${game.pubisher}</p>
-</c:forEach>
