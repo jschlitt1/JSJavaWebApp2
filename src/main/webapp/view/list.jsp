@@ -36,6 +36,13 @@
 
 
 <c:forEach var="game" items="${games}">
+    <tr>
+        <td>${game.title}</td>
+        <td>${game.pubisher}</td>
+        <td>${game.devloper}</td>
+        <td>${game.rating}</td>
+        <td></td>
+    </tr>
     <p>${game.id}</p>
     <p>${game.title}</p>
     <p>${game.devloper}</p>

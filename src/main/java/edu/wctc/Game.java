@@ -1,10 +1,19 @@
-package edu;
+package edu.wctc;
 
 public class Game {
     private int id;
     private String title;
     private int publisher;
     private int developer;
+    private int rating;
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
 
     public int getId() {
         return id;
